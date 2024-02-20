@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../App.css"; 
+import "../App.css";
 import Form from "./Form";
 
 const Popup = () => {
@@ -19,11 +19,11 @@ const Popup = () => {
 
   return (
     <div className={`popup ${isVisible ? "visible" : "hidden"}`}>
+      <button className="close" onClick={handleClose}>
+        x
+      </button>
       <div className="popup-content">
-        <span className="close" onClick={handleClose}>
-          x
-        </span>
-        <h2>Welcome to our website!</h2>
+        <h2>Join our newsletter!</h2>
         <Form />
       </div>
     </div>

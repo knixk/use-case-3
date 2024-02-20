@@ -1,7 +1,6 @@
 // Step 1: Create a Context
 import React, { createContext, useContext, useState } from "react";
 
-
 // Create a new context
 export const MyContext = createContext();
 
@@ -9,9 +8,15 @@ export const MyContext = createContext();
 export const MyProvider = ({ children }) => {
   const [email, setEmail] = useState("");
 
+  const [formData, setFormData] = useState({
+    username: "",
+    email1: "",
+    password: "",
+  });
+
   // Wrap children with the Provider and pass the state and any functions to update the state
   return (
-    <MyContext.Provider value={{ email, setEmail }}>
+    <MyContext.Provider value={{ email, setEmail, formData, setFormData }}>
       {children}
     </MyContext.Provider>
   );
