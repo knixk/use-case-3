@@ -10,6 +10,5 @@ braze.initialize("bfe1d7a8-2c42-428e-a5fd-5757c0f6507d", {
   enableLogging: true,
 });
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
