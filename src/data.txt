@@ -1,0 +1,95 @@
+{
+  "attributes": [
+    {
+      "external_id": "user_identifier",
+      "string_attribute": "fruit",
+      "boolean_attribute_1": true,
+      "integer_attribute": 25,
+      "array_attribute": ["banana", "apple"]
+    }
+  ],
+  "events": [
+    {
+      "external_id": "user_identifier",
+      "app_id": "app_identifier",
+      "name": "watched_trailer",
+      "time": "2013-07-16T19:20:30+1:00"
+    }
+  ],
+  "purchases": [
+    {
+      "external_id": "user_identifier",
+      "app_id": "app_identifier",
+      "product_id": "product_name",
+      "currency": "USD",
+      "price": 12.12,
+      "quantity": 6,
+      "time": "2017-05-12T18:47:12Z",
+      "properties": {
+        "integer_property": 3,
+        "string_property": "Russell",
+        "date_property": "2014-02-02T00:00:00Z"
+      }
+    }
+  ]
+}
+
+//
+// const data = {
+//   events: [
+//     {
+//       external_id: "kanishk@attributics.com",
+//       app_id: "bfe1d7a8-2c42-428e-a5fd-5757c0f6507d",
+//       name: "APi test",
+//       time: "2013-07-16T19:20:30+1:00",
+//     },
+//   ],
+// };
+
+// jia@email.com
+// 527264ec-59f6-4f04-ba41-df5b40de610d
+
+// aa8c47d7-ce37-4dd8-8186-1d858130775d
+// kk@email.com
+
+// af77be35-e0cb-46e6-bb6a-999ccacf9471
+// de@email.com
+
+
+
+//LINK - 
+
+{
+  "merge_updates": [
+    {
+      "identifier_to_merge": {
+        "external_id": "old-user1"
+      },
+      "identifier_to_keep": {
+        "external_id": "current-user1"
+      }
+    },
+    {
+      "identifier_to_merge": {
+        "email": "user1@braze.com"
+      },
+      "identifier_to_keep": {
+        "email": "user2@braze.com"
+      }
+    },
+    {
+      "identifier_to_merge": {
+        "user_alias": {
+          "alias_name": "old-user2@example.com",
+          "alias_label": "email"
+        }
+      },
+      "identifier_to_keep": {
+        "user_alias": {
+          "alias_name": "current-user2@example.com",
+          "alias_label": "email"
+        }
+      }
+    }
+  ]
+}

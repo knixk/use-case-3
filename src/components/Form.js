@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { MyContext } from "../Context";
+import axios from "axios";
+import dateFormat from "dateformat";
 
 function Form() {
   const { email, setEmail } = useContext(MyContext);
@@ -11,8 +13,27 @@ function Form() {
       return;
     }
 
-    // send a api req to user's track endpoint
+    // send a api req to braze user's track endpoint
 
+    const now = new Date();
+    const timestamp = dateFormat(now, "isoDateTime");
+
+    const data = {
+      attributes: [
+        {
+          email: email,
+          signed_up_email: true,
+        },
+      ],
+      events: [
+        {
+          name: "Signed up for email",
+          time: timestamp,
+        },
+      ],
+    };
+
+    axios.post("/users/track", data).then((res) => console.log(res));
   };
 
   return (

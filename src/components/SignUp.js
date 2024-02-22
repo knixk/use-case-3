@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { MyContext } from "../Context";
 import * as braze from "@braze/web-sdk";
+import { v4 as uuidv4 } from "uuid";
 
 const Signup = () => {
   const { formData, setFormData } = useContext(MyContext);
@@ -13,14 +14,14 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can perform any signup logic, like sending the form data to a server
     console.log("Form submitted:", formData);
+    const user_id = uuidv4();
+    console.log("user_id set as: ", user_id);
+
     try {
-      braze.changeUser({
-        userIdentity: {
-          external_id: formData.email1,
-        },
-      });
+      braze.changeUser(user_id);
+      // braze.getUser().addAlias("email", formData.email1);
+
       console.log("User aliasing successful");
     } catch (error) {
       console.error("Error aliasing user:", error);
