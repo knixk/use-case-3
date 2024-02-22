@@ -55,6 +55,8 @@
 // af77be35-e0cb-46e6-bb6a-999ccacf9471
 // de@email.com
 
+// 8f97a4ea-b5bb-476b-b231-580e81d30a10
+// kan@email.com
 
 
 //LINK - 
@@ -92,4 +94,27 @@
       }
     }
   ]
+}
+
+//LINK - 
+
+{
+    "merge_updates": [
+        {
+            "identifier_to_merge": {
+                "email": "kan@email.com",
+                "prioritization": [
+                    "unidentified",
+                    "most_recently_updated"
+                ]
+            },
+            "identifier_to_keep": {
+                "email": "kan@email.com",
+                "prioritization": [
+                    "unidentified",
+                    "most_recently_updated"
+                ]
+            }
+        }
+    ]
 }

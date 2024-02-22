@@ -19,8 +19,13 @@ const Signup = () => {
     console.log("user_id set as: ", user_id);
 
     try {
-      braze.changeUser(user_id);
       // braze.getUser().addAlias("email", formData.email1);
+      braze.getUser().setEmail(formData.email1);
+      braze.getUser().setHomeCity("IDR");
+      braze.getUser().setGender('f');
+
+      // braze.getUser().
+      // braze.changeUser(user_id);
 
       console.log("User aliasing successful");
     } catch (error) {
