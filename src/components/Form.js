@@ -18,22 +18,13 @@ function Form() {
     const now = new Date();
     const timestamp = dateFormat(now, "isoDateTime");
 
-    const data = {
-      attributes: [
-        {
-          email: email,
-          signed_up_email: true,
-        },
-      ],
-      events: [
-        {
-          name: "Signed up for email",
-          time: timestamp,
-        },
-      ],
+ 
+    const payload = {
+      email,
+      timestamp
     };
 
-    axios.post("/users/track", data).then((res) => console.log(res));
+    axios.post("/users/track", payload).then((res) => console.log(res));
   };
 
   return (
