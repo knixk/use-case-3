@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { MyContext } from "../Context";
 import * as braze from "@braze/web-sdk";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
+
 
 const Signup = () => {
   const { formData, setFormData } = useContext(MyContext);
@@ -19,15 +21,13 @@ const Signup = () => {
     console.log("user_id set as: ", user_id);
 
     try {
-      // braze.getUser().addAlias("email", formData.email1);
-      braze.getUser().setEmail(formData.email1);
+      braze.getUser().addAlias("email", formData.email1);
+      braze.changeUser(user_id);
+      // braze.getUser().setEmail(formData.email1);
       braze.getUser().setHomeCity("IDR");
-      braze.getUser().setGender('f');
+      braze.getUser().setDateOfBirth(2001, 5, 11);
 
-      // braze.getUser().
-      // braze.changeUser(user_id);
-
-      console.log("User aliasing successful");
+      // console.log("User aliasing successful");
     } catch (error) {
       console.error("Error aliasing user:", error);
     }

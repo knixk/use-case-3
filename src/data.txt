@@ -118,3 +118,14 @@
         }
     ]
 }
+
+//NOTE - alias a new user
+{
+  "user_aliases" :[
+    {
+      "external_id": "external_identifier",
+      "alias_name" : "example_name",
+      "alias_label" : "example_label"
+    }
+  ]
+}
