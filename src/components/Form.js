@@ -14,17 +14,20 @@ function Form() {
     }
 
     // send a api req to braze user's track endpoint
-
+    
     const now = new Date();
     const timestamp = dateFormat(now, "isoDateTime");
 
- 
     const payload = {
       email,
-      timestamp
+      timestamp,
     };
 
-    axios.post("/users/track", payload).then((res) => console.log(res));
+    try {
+      axios.post("/users/track", payload).then((res) => console.log(res));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
