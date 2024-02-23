@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { MyContext } from "../Context";
 import * as braze from "@braze/web-sdk";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
 const Signup = () => {
@@ -16,8 +16,8 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    const user_id = uuidv4();
-    console.log("user_id set as: ", user_id);
+    // const user_id = uuidv4();
+    // console.log("user_id set as: ", user_id);
 
     const payload = {
       email: formData.email1,
@@ -32,7 +32,11 @@ const Signup = () => {
       braze.getUser().setDateOfBirth(2001, 5, 11);
       */
       // console.log("User aliasing successful");
-      axios.post("/identify", payload).then((res) => console.log(res));
+      axios.post("/identify", payload).then((res) => {
+        console.log(res.data, ': ext id');
+        const external_id = res.data;
+        braze.changeUser(external_id);
+      });
     } catch (error) {
       console.error("Error aliasing user:", error);
     }
